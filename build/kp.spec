@@ -8,7 +8,7 @@ License:        GPLv3
 URL:            https://kororaproject.org/
 Source0:        https://github.com/kororaproject/kp
 BuildArch:      noarch
-Requires:       createrepo mock livecd-tools pykickstart
+Requires:       createrepo mock livecd-tools pykickstart rpm-sign
 
 %description
 Korora Package tool (called kp) is a bunch of shell scripts that wrap standard system commands 
@@ -16,8 +16,6 @@ Korora Package tool (called kp) is a bunch of shell scripts that wrap standard s
 Users should be running Korora or Fedora already, however which specific version generally doesn't matter.
 
 %prep
-%setup -q -n numixproject-numix-icon-theme-circle-%{git}
-
 
 %build
 

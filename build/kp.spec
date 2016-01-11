@@ -1,4 +1,4 @@
-%define git ac4b41d
+%define git 38b8564
 
 Name:           kp
 Version:        0.1
@@ -6,7 +6,7 @@ Release:        1%{?dist}
 Summary:        Korora Packaging Tool
 License:        GPLv3
 URL:            https://kororaproject.org/
-Source0:        https://github.com/kororaproject/kp
+Source0:        https://github.com/kororaproject/kp/tarball/%{git}
 BuildArch:      noarch
 Requires:       createrepo mock livecd-tools pykickstart rpm-sign
 
@@ -16,29 +16,28 @@ Korora Package tool (called kp) is a bunch of shell scripts that wrap standard s
 Users should be running Korora or Fedora already, however which specific version generally doesn't matter.
 
 %prep
+%setup -q -n kororaproject-kp-%{git}
 
 %build
 
 %install
-mkdir -p %{buildroot}%{_datadir}/icons/korora
-cp -apR Numix-Circle/* %{buildroot}%{_datadir}/icons/korora
-install %{SOURCE1} %{buildroot}%{_datadir}/icons/korora/scalable/apps/
-chmod 644 %{buildroot}%{_datadir}/icons/korora/index.theme
+mkdir -p %{buildroot}%{_datadir}/share/%{name}
+mkdir -p %{buildroot}%{_bindir}
+
+ls
+
+install -m 755 kp %{buildroot}%{_bindir}/kp
+cp -r lib/* %{buildroot}%{_datadir}/share/%{name}/
 
 %post
-touch --no-create %{_datadir}/icons/korora &>/dev/null ||:
 
 %postun
-if [ $1 -eq 0 ] ; then
-  touch --no-create %{_datadir}/icons/korora &>/dev/null
-  gtk-update-icon-cache -q %{_datadir}/icons/korora &>/dev/null ||:
-fi
-
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/korora &>/dev/null ||:
 
 %files
-%doc license
-%{_datadir}/icons/korora/*
+%doc COPYING
+%{_bindir}/kp
+%{_datadir}/share/kp
 
 %changelog
+* Mon Jan 11 2016 Jim Dean <ozjd@kororaproject.org> 0.1-1
+- Initial spec. 

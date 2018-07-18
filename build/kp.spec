@@ -36,7 +36,7 @@ cp -r lib/* %{buildroot}%{_datadir}/share/%{name}/
 %files
 %doc COPYING
 %{_bindir}/kp
-%{_datadir}/share/kp
+%{_datadir}/kp
 
 %changelog
 * Mon Jan 11 2016 Jim Dean <ozjd@kororaproject.org> 0.1-1

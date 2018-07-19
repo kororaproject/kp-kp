@@ -2,7 +2,7 @@
 
 Name:           kp
 Version:        0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Korora Packaging Tool
 License:        GPLv3
 URL:            https://kororaproject.org/
@@ -36,8 +36,11 @@ cp -r lib/* %{buildroot}%{_datadir}/share/%{name}/
 %files
 %doc COPYING
 %{_bindir}/kp
-%{_datadir}/share/kp
+%{_datadir}/kp
 
 %changelog
+* Wed Jul 18 2018 JMiahMan <JMiahMan@gmail.com> 0.1-2
+- Bump rel for spec fix
+
 * Mon Jan 11 2016 Jim Dean <ozjd@kororaproject.org> 0.1-1
 - Initial spec. 

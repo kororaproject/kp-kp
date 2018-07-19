@@ -39,7 +39,8 @@ cp -r lib/* %{buildroot}%{_datadir}/share/%{name}/
 %{_datadir}/kp
 
 %changelog
-* Wed Jul 18 2018 Jim Dean <JMiahMan@gmail.com> 0.1-2
+* Wed Jul 18 2018 JMiahMan <JMiahMan@gmail.com> 0.1-2
+- Bump rel for spec fix
 
 * Mon Jan 11 2016 Jim Dean <ozjd@kororaproject.org> 0.1-1
 - Initial spec. 
